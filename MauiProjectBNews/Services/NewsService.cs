@@ -11,7 +11,7 @@ namespace MauiProjectBNews.Services
 {
     public class NewsService
     {
-        readonly string apiKey = "your-api-key";
+        readonly string apiKey = "2a9f14287e7c426bb78777ed077748bd";
 
         HttpClient httpClient = new HttpClient();
         public NewsService()

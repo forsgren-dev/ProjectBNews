@@ -1,0 +1,50 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiProjectBNews.Views.NewsPage"
+             BackgroundColor="White"
+             Shell.BackgroundColor="CornflowerBlue"
+             Shell.TitleColor="White">
+
+    <Grid RowDefinitions="Auto,*">
+
+        <Border Grid.Row="0"
+                BackgroundColor="MediumBlue"
+                Padding="0,18"
+                StrokeThickness="0">
+
+            <Label Text="News"
+                   TextColor="White"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center" />
+        </Border>
+
+        <ScrollView Grid.Row="1">
+            <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+
+                <Label
+                Text="News in Maui"
+                Style="{StaticResource Headline}"
+                SemanticProperties.HeadingLevel="Level1" />
+
+                <Label
+                Text="This is a simple Maui application as part of Project B. Select a news category and give it a try!"
+                Style="{StaticResource SubHeadline}"
+                SemanticProperties.HeadingLevel="Level2"
+                SemanticProperties.Description="Welcome to Weather Service" />
+
+                <Label
+                x:Name="CreatedByLabel"
+                Style="{StaticResource SubHeadline}"
+                Text="Created by Erik Forsgren"
+                FontSize="16" />
+
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
