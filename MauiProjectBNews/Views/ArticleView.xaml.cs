@@ -12,6 +12,7 @@ namespace MauiProjectBNews.Views
         public ArticleView(string Url)
         {
             InitializeComponent();
+            Title = "Article";
             BindingContext = new UrlWebViewSource
             {
                 Url = HttpUtility.UrlDecode(Url)

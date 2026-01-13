@@ -12,6 +12,7 @@ namespace MauiProjectBNews.Services
     public class NewsService
     {
         readonly string apiKey = "2a9f14287e7c426bb78777ed077748bd";
+        public DateTime Fetched { get; set; } = new();
 
         HttpClient httpClient = new HttpClient();
         public NewsService()
@@ -23,7 +24,7 @@ namespace MauiProjectBNews.Services
         public async Task<News> GetNewsAsync(NewsCategory category)
         {
 
-#if UseNewsApiSample      
+#if !UseNewsApiSample      
             NewsApiData nd = await NewsApiSampleData.GetNewsApiSampleAsync(category);
 #else
             //https://newsapi.org/docs/endpoints/top-headlines
@@ -33,6 +34,7 @@ namespace MauiProjectBNews.Services
             var httpRequest = new HttpRequestMessage(HttpMethod.Get, uri);
             var response = await httpClient.SendAsync(httpRequest);
             response.EnsureSuccessStatusCode();
+            Fetched = DateTime.Now;
 
             //Convert Json to Object
             NewsApiData nd = await response.Content.ReadFromJsonAsync<NewsApiData>();

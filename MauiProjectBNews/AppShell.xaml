@@ -9,7 +9,7 @@
     Title="MauiProjectBNews">
     
     <ShellContent
-        Title="Maui hello"
+        Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="mauihello" />
 

@@ -6,22 +6,20 @@
         {
             InitializeComponent();
 
-            foreach (var category in Enum.GetValues(typeof(Models.NewsCategory)))   
+            
+            foreach (Models.NewsCategory category in Enum.GetValues(typeof(Models.NewsCategory)))   
             {
-                var route = $"{category}";
-                Routing.RegisterRoute(route, typeof(Views.NewsPage));
-
+                
                 var flyOutItem = new FlyoutItem
                 {
-                    Title = route.ToUpper(),
-                    Route = route
+                    Title = $"{category.ToString().Substring(0, 1).ToUpper()}{category.ToString().Substring(1).ToLower()}",
+                    FlyoutDisplayOptions = FlyoutDisplayOptions.AsSingleItem
                 };
 
                 flyOutItem.Items.Add(new ShellContent
                 {
-                    Title = route.ToUpper(),
-                    Route = route,
-                    ContentTemplate = new DataTemplate(typeof(Views.NewsPage))
+                    Title = $"{category.ToString().Substring(0, 1).ToUpper()}{category.ToString().Substring(1).ToLower()}",
+                    ContentTemplate = new DataTemplate(() => new Views.NewsPage(category))
 
                 });
 

@@ -4,47 +4,43 @@
              BackgroundColor="White"
              Shell.BackgroundColor="CornflowerBlue"
              Shell.TitleColor="White">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="LastFetched"
+                     Text="Last updated: -"
+                     Priority ="0"
+                     Order="Primary">
+        </ToolbarItem>
+        <ToolbarItem Text="- REFRESH -"
+                     Priority="0"
+                     Order="Primary"
+                     Clicked="OnRefreshClicked" />
+    </ContentPage.ToolbarItems>
+    <CollectionView x:Name="NewsList"
+                    SelectionMode="Single"
+                    SelectionChanged="NewsList_SelectionChanged">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
 
-    <Grid RowDefinitions="Auto,*">
-
-        <Border Grid.Row="0"
-                BackgroundColor="MediumBlue"
-                Padding="0,18"
-                StrokeThickness="0">
-
-            <Label Text="News"
-                   TextColor="White"
-                   FontSize="36"
-                   FontAttributes="Bold"
-                   HorizontalOptions="Center"
-                   VerticalOptions="Center" />
-        </Border>
-
-        <ScrollView Grid.Row="1">
-            <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25">
-
-
-                <Label
-                Text="News in Maui"
-                Style="{StaticResource Headline}"
-                SemanticProperties.HeadingLevel="Level1" />
-
-                <Label
-                Text="This is a simple Maui application as part of Project B. Select a news category and give it a try!"
-                Style="{StaticResource SubHeadline}"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to Weather Service" />
-
-                <Label
-                x:Name="CreatedByLabel"
-                Style="{StaticResource SubHeadline}"
-                Text="Created by Erik Forsgren"
-                FontSize="16" />
-
-
-            </VerticalStackLayout>
-        </ScrollView>
-    </Grid>
+                <Grid Padding="12"
+                          ColumnDefinitions="80,*"
+                          RowDefinitions="Auto,Auto"
+                          ColumnSpacing="12">
+                    <Image Grid.Column="0"
+                           Grid.RowSpan="2"
+                           WidthRequest="80"
+                           HeightRequest="60"
+                           Aspect="AspectFill"
+                           Source="{Binding UrlToImage}" />
+                    <Label Grid.Column="1" 
+                        Text="{Binding Title}" 
+                           FontAttributes="Bold" 
+                           FontSize="Subtitle"/>
+                    <Label Grid.Column="1" 
+                           Grid.Row="1"
+                        Text="{Binding DateTime, StringFormat='{0:yyyy-MM-dd HH:mm}'}"
+                       FontSize="12" Opacity="0.7" />
+                </Grid>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>
