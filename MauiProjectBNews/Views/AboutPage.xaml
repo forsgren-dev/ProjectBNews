@@ -1,8 +1,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiProjectBNews.Views.NewsPage"
+             x:Class="MauiProjectBNews.Views.AboutPage"
              BackgroundColor="White"
              Shell.BackgroundColor="CornflowerBlue"
-             Shell.TitleColor="White">
+             Shell.TitleColor="White"
+			 Title="About">
 
 </ContentPage>

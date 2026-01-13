@@ -12,5 +12,9 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="mauihello" />
+    <ShellContent
+    Title="About"
+    ContentTemplate="{DataTemplate views:AboutPage}"
+    Route="about" />
 
 </Shell>
