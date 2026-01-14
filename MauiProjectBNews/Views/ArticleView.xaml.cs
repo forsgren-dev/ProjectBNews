@@ -8,7 +8,7 @@ namespace MauiProjectBNews.Views
         public ArticleView()
         {
             InitializeComponent();
-         }
+        }
         public ArticleView(string Url)
         {
             InitializeComponent();

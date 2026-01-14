@@ -1,6 +1,4 @@
 ﻿using MauiProjectBNews.Services;
-using Microsoft.Maui.Controls;
-using System.Linq;
 
 namespace MauiProjectBNews
 {
@@ -8,11 +6,12 @@ namespace MauiProjectBNews
     {
         private NewsService _service;
 
-        int count = 0;
+
 
         public MainPage()
         {
             InitializeComponent();
+            Title = "Project B: News";
             _service = new NewsService();
         }
 
@@ -23,13 +22,13 @@ namespace MauiProjectBNews
             try
             {
                 var news = await _service.GetNewsAsync(MauiProjectBNews.Models.NewsCategory.business);
-                ServiceLabel.Text = $"{news.Articles.Count} news article read.";   
+                ServiceLabel.Text = $"{news.Articles.Count} news articles read.";
             }
             catch (Exception ex)
             {
                 ServiceLabel.Text = $"Error reading news: {ex.Message}";
             }
         }
-        
+
     }
 }

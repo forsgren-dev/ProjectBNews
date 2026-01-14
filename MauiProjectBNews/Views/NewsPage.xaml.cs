@@ -1,15 +1,9 @@
 ﻿using MauiProjectBNews.Models;
 using MauiProjectBNews.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ExceptionServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MauiProjectBNews.Views
 {
-    
+
     public partial class NewsPage : ContentPage
     {
         private readonly NewsService _newsService = new();
@@ -19,7 +13,7 @@ namespace MauiProjectBNews.Views
         public NewsPage(NewsCategory category)
         {
             InitializeComponent();
-            
+
             _category = category;
             Title = $"{category.ToString().Substring(0, 1).ToUpper()}{category.ToString().Substring(1)}";
         }
@@ -47,7 +41,6 @@ namespace MauiProjectBNews.Views
 
             await Navigation.PushAsync(new ArticleView(item.Url));
 
-            
         }
 
         private async Task LoadNewsAsync()
@@ -58,7 +51,11 @@ namespace MauiProjectBNews.Views
                 var news = await _newsService.GetNewsAsync(_category);
                 _cached = news;
                 NewsList.ItemsSource = news.Articles;
-                LastFetched.Text = $"Last update: {_newsService.Fetched:g}";
+                LastUpdated.Text = $"Last updated: {_newsService.Fetched:g}";
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Fel", ex.Message, "OK");
             }
             finally
             {

@@ -18,12 +18,12 @@ namespace MauiProjectBNews.Models
         public DateTime PublishedAt { get; set; }
         public string Content { get; set; }
     }
-    
+
     [XmlRoot("NewsApiData", Namespace = "http://mynamespace/test/")] //This line needed only for the SampleData
     public class NewsApiData
     {
         private static readonly object _locker = new object();
-        
+
         public string Status { get; set; }
         public int TotalResults { get; set; }
         public List<Article> Articles { get; set; }

@@ -5,7 +5,7 @@
              Shell.BackgroundColor="CornflowerBlue"
              Shell.TitleColor="White">
     <ContentPage.ToolbarItems>
-        <ToolbarItem x:Name="LastFetched"
+        <ToolbarItem x:Name="LastUpdated"
                      Text="Last updated: -"
                      Priority ="0"
                      Order="Primary">

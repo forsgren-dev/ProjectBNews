@@ -5,5 +5,25 @@
              Shell.BackgroundColor="CornflowerBlue"
              Shell.TitleColor="White"
 			 Title="About">
-
+    <VerticalStackLayout
+                Padding="30,0"
+                Spacing="25"
+                HorizontalOptions="Center">
+        <Image
+                Source="dotnet_bot.png"
+                HeightRequest="300"
+                Aspect="AspectFit"
+                Margin="0,50,0,0"
+                HorizontalOptions="Center"
+                SemanticProperties.Description="Dot net bot reading news" />
+        <Label
+                Text="Project B: News"
+                FontSize="Header"
+                HorizontalOptions="Center"
+                SemanticProperties.HeadingLevel="Level1" />
+        <Label Text="Developer: Erik Forsgren"
+                FontSize="Medium"
+                HorizontalOptions="Center">
+        </Label>
+    </VerticalStackLayout>
 </ContentPage>

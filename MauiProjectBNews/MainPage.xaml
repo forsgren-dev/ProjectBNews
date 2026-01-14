@@ -10,18 +10,19 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25"
-            VerticalOptions="Center"
             HorizontalOptions="Center">
-            <Image
-                Source="dotnet_bot.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="Dot net bot reading news" />
-
             <Label
                 Text="Project B: News"
-                Style="{StaticResource Headline}"
+                FontSize="Header"
+                Margin="0,20,0,0"
+                HorizontalOptions="Center"
                 SemanticProperties.HeadingLevel="Level1" />
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="300"
+                Aspect="AspectFit"
+                Margin="0,20,0,0"
+                SemanticProperties.Description="Dot net bot reading news" />
 
             <Label
                 Text="Select a news category in the menu to get started."

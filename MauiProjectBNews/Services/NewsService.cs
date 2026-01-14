@@ -1,9 +1,6 @@
-﻿#define UseNewsApiSample  // Remove or undefine to use your own code to read live data
-
-using System.Collections.Concurrent;
+﻿//#define UseNewsApiSample  // Remove or undefine to use your own code to read live data
 
 using MauiProjectBNews.Models;
-using MauiProjectBNews.Models.SampleData;
 using System.Net;
 using System.Net.Http.Json;
 
@@ -24,8 +21,8 @@ namespace MauiProjectBNews.Services
         public async Task<News> GetNewsAsync(NewsCategory category)
         {
 
-#if !UseNewsApiSample      
-            NewsApiData nd = await NewsApiSampleData.GetNewsApiSampleAsync(category);
+#if UseNewsApiSample      
+          NewsApiData nd = await NewsApiSampleData.GetNewsApiSampleAsync(category);
 #else
             //https://newsapi.org/docs/endpoints/top-headlines
             var uri = $"https://newsapi.org/v2/top-headlines?country=us&category={category}";

@@ -6,13 +6,13 @@
         {
             InitializeComponent();
 
-            
-            foreach (Models.NewsCategory category in Enum.GetValues(typeof(Models.NewsCategory)))   
+
+            foreach (Models.NewsCategory category in Enum.GetValues(typeof(Models.NewsCategory)))
             {
-                
+
                 var flyOutItem = new FlyoutItem
                 {
-                    Title = $"{category.ToString().Substring(0, 1).ToUpper()}{category.ToString().Substring(1).ToLower()}",
+                    Title = $"🔵 {category.ToString().Substring(0, 1).ToUpper()}{category.ToString().Substring(1).ToLower()}",
                     FlyoutDisplayOptions = FlyoutDisplayOptions.AsSingleItem
                 };
 
